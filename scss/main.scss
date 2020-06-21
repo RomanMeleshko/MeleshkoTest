@@ -1,0 +1,165 @@
+@import "~bootstrap/scss/bootstrap";
+
+// connecting the font-style Lato-Light
+@font-face {
+  font-family: Lato-Light;
+  src: url(/fonts/9625.ttf);
+}
+* {
+  font-family: Lato-Light;
+}
+
+
+// styles of header
+.container-wrapper {
+  border: 2px solid #333;
+  border-radius: 10px;
+}
+.icon-wrapper {
+  text-transform: uppercase;
+  display: inline-block;
+}
+.home-page__scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+// styles of content
+.preloader {
+  text-transform: uppercase;
+  border: none;
+  transition: 1s;
+}
+.preloader:focus {
+  outline: none;
+}
+.preloader:hover {
+  background: none;
+}
+.load {
+  content: url("/images/spinner.png");
+  animation: move 1s linear infinite;
+  margin-right: 15px;
+  margin-bottom: -5px;
+}
+@keyframes move {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.comment-block {
+  background: #e2eeec;
+}
+.home-page__block {
+  background: rgba(51, 51, 51, 0.61);
+}
+.block-button button {
+  border: none;
+  outline: none;
+  background: #ffffff;
+  transition: 0.5s;
+}
+.block-button button:hover {
+  color: #5395f8;
+  box-shadow: 0px 0px 10px #ffffff;
+}
+.icon-inform > i {
+  font-size: 25px;
+}
+
+// block of tooltipe and change position triangle
+
+.tooltip-block, .update-position-triangle {
+  position: fixed;
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #9EA9CA;
+  display: flex;
+  align-items: center;
+}
+.tooltip-block::after, .tooltip-block::before {
+ content: '';
+ position: absolute;
+ background: #9EA9CA;
+ left: 90px; bottom: -8px;
+ width: 20px; height: 20px;
+ transform: rotate(45deg);
+}
+
+.update-position-triangle::after, .update-position-triangle::before {
+ content: '';
+ position: absolute;
+ background: #9EA9CA;
+ left: 192px; bottom: -8px;
+ width: 20px; height: 20px;
+ transform: rotate(45deg);
+}
+
+
+
+.tooltip-text {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+}
+.close-icon {
+  top: -10px;
+  left: 380px;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-wondow {
+  margin-top: 50px;
+  position: relative;
+}
+.block-left {
+   width: 17%;
+   vertical-align: middle;
+   position: relative;
+}
+.block-right {
+   width: 83%;
+   text-align: left;
+}
+.block-left, .block-right {
+  float: left;
+  word-wrap: break-word;
+  position: relative;
+}
+.text-color:nth-child(even) {
+  color: blue;
+}
+
+// styles of footer
+
+.block-one {
+   width: 200px;
+   height: 300px;
+   position: relative;
+   background: red;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: #236D76;
+}
+
+.block-two, .block-three {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 150px;
+   background: #D1C9F1;
+}
