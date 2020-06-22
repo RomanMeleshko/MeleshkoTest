@@ -101,7 +101,7 @@ $( document ).ready(function(){
         let left = 87;
 
         if(cords.left + create_tooltip.width() > $(window).width()) {
-          
+
            left = create_tooltip.width() / 2;
 
            changePositionTriangle( create_tooltip );
@@ -131,6 +131,60 @@ $( document ).ready(function(){
    }
 
 
+   function timerBack() {
+
+     let year = $(".year > span");
+     let mount = $(".mount > span");
+     let day = $(".day > span");
+
+     let hours = $(".hours > span");
+     let minute = $(".minute > span");
+     let second = $(".seconds > span");
+
+     let end_date = {
+         "full_year": "2020",
+         "month": "09",
+         "day": "01",
+         "hours": "00",
+         "minutes": "00",
+         "seconds": "00"
+     }
+
+     let end_date_str = `${end_date.full_year}-${end_date.month}-${end_date.day}T${end_date.hours}:${end_date.minutes}:${end_date.seconds}`;
+
+     timer = setInterval(function () {
+         let now = new Date();
+         let date = new Date(end_date_str);
+         let ms_left = diffSubtract(now, date);
+
+         if (ms_left <= 0) {
+
+             clearInterval(timer);
+             alert("Time was end");
+
+         } else {
+
+             let res = new Date(ms_left);
+
+             $(year).text(`${res.getUTCFullYear() - 1970}`);
+             $(mount).text(`${res.getUTCMonth()}`);
+             $(day).text(`${res.getUTCDate() - 1}`);
+
+             $(hours).text(`${res.getUTCHours()}`);
+             $(minute).text(`${res.getUTCMinutes()}`);
+             $(second).text(`${res.getUTCSeconds()}`);
+
+         }
+     }, 1000);
+
+   }
+
+   timerBack();
+
+
+   function diffSubtract(date1, date2) {
+       return date2 - date1;
+   }
 
 
 });
